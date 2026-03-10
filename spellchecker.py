@@ -1,6 +1,9 @@
 import time
-
+import richWord as rw
 import multiDictionary as md
+
+import dictionary
+d = dictionary.Dictionary
 
 class SpellChecker:
 
@@ -8,7 +11,12 @@ class SpellChecker:
         pass
 
     def handleSentence(self, txtIn, language):
-        pass
+        #testo = replaceChars(txtIn).lower()
+        #parola = testo.split()
+        parola = txtIn.split()
+        for el in parola:
+            rw.RichWord(el, language, None)
+
 
     def printMenu(self):
         print("______________________________\n" +
@@ -23,4 +31,7 @@ class SpellChecker:
 
 
 def replaceChars(text):
-    pass
+    chars = "\\`*_{}[]()>#+-.!$%^;,=_~"
+    for c in chars:
+        text = text.replace(c, "")
+    return text
