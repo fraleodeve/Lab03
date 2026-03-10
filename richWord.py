@@ -1,15 +1,13 @@
 import multiDictionary as md
+m = md.MultiDictionary()
 
 class RichWord:
-    def __init__(self, parola: str, language: str, corretta: None):
-        self.language = language
+    def __init__(self, parola: str, corretta: None, linguaggio: str):
         self.parola = parola # this is a string
+        self.linguaggio = linguaggio
         self._corretta = None #this is a bool
         self.corretta = corretta
 
-    def booleanv(self):
-        boolValue = md.MultiDictionary.searchWord(self.parola, self.language)
-        return boolValue
 
     @property
     def corretta(self):
@@ -18,10 +16,10 @@ class RichWord:
 
     @corretta.setter
     def corretta(self, boolValue):
-        #boolValue = md.MultiDictionary.searchWord(self, self.language, self._parola)
-        boolValue = self.booleanv()
+        boolValue = m.searchWord(self.linguaggio, self.parola)
         # print("setter of parola called" )
         self._corretta = boolValue
 
     def __str__(self):
-        return self._parola
+        if self.corretta == False:
+            return self.parola

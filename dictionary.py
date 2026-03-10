@@ -1,20 +1,29 @@
+import resources
+
 class Dictionary:
-    def __init__(self, parola: str, booleano: bool):
-        dict = {}
+    def __init__(self):
+        self.lista = []
+
+
+class Dictionary:
+    def __init__(self):
+        self.lista = []
 
     def loadDictionary(self, path) -> list:
-        infile = open(path, "r", encoding="utf-8")
+        percorso = path.capitalize() + ".txt"
+        file = "resources" + "/" + percorso
+        infile = open(file, "r", encoding="utf-8")
         lines = infile.readlines()
         for i in range(0, len(lines)):
-            lines[i] = lines[i].strip("\n")
-            self.lista.append(lines[i])
-            #self.parola = lines[i]
-            #lista.append(self.parola)
+            temp = lines[i]
+            variabile = temp.strip("\n")
+            self.lista.append(variabile)
         return self.lista
 
 
     def printAll(self):
-        pass
+        for el in self.lista:
+            print(el)
 
 
     @property

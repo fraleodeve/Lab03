@@ -1,25 +1,23 @@
-import dictionary as d
+import dictionary as di
+d = di.Dictionary()
 import richWord as rw
 
 
 class MultiDictionary:
 
-    def __init__(self, words: str, language: str):
-        self.words = words
-        self.language = language
+    def __init__(self):
+        self.words = None
+        self.language = None
 
     def printDic(self):
-        lingua = self.language.capitalize() + ".txt"
-        d.Dictionary(self.words, None, lingua)
-        lista = d.Dictionary(self.words, None, lingua)
+        lista = d.loadDictionary(self.language)
         for element in lista:
             print(element)
 
-    def searchWord(self, word, language):
-        lingua = language.capitalize() + ".txt"
-        lista = d.Dictionary(word, None, lingua)
+    def searchWord(self, language, word):
+        lista = d.loadDictionary(language)
         for el in lista:
-            if el == self.words:
+            if el == word:
                 return True
         return False
 

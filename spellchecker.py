@@ -1,9 +1,10 @@
 import time
 import richWord as rw
+r = rw.RichWord
 import multiDictionary as md
 
 import dictionary
-d = dictionary.Dictionary
+d = dictionary.Dictionary()
 
 class SpellChecker:
 
@@ -15,7 +16,8 @@ class SpellChecker:
         #parola = testo.split()
         parola = txtIn.split()
         for el in parola:
-            rw.RichWord(el, language, None)
+            parola = r(el, None, language)
+        print(parola)
 
 
     def printMenu(self):
