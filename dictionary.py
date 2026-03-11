@@ -4,11 +4,6 @@ class Dictionary:
     def __init__(self):
         self.lista = []
 
-
-class Dictionary:
-    def __init__(self):
-        self.lista = []
-
     def loadDictionary(self, path) -> list:
         percorso = path.capitalize() + ".txt"
         file = "resources" + "/" + percorso
@@ -25,7 +20,11 @@ class Dictionary:
         for el in self.lista:
             print(el)
 
-
     @property
     def dict(self) -> list:
         return self.lista
+
+    def __contains__(self, item):
+        if item in self.lista:
+            return True
+        return False
